@@ -1,21 +1,6 @@
-//Quandl
-import adapter.CotacaoAdapter;
-import com.jimmoores.quandl.*;
-import com.jimmoores.quandl.classic.ClassicQuandlSession;
-
-//YahooFinance
-import io.github.mainstringargs.alphavantagescraper.AlphaVantageConnector;
-import io.github.mainstringargs.alphavantagescraper.StockQuotes;
-import io.github.mainstringargs.alphavantagescraper.output.AlphaVantageException;
-import io.github.mainstringargs.alphavantagescraper.output.quote.StockQuotesResponse;
-import io.github.mainstringargs.alphavantagescraper.output.quote.data.StockQuote;
-import io.github.mainstringargs.yahooFinance.*;
-import io.github.mainstringargs.yahooFinance.domain.FinancialData;
-
-//AlphaVantage
-import io.github.mainstringargs.*;
-
-import java.time.format.DateTimeFormatter;
+import adapter.AlphaVantageAdapter;
+import adapter.QuandlAdapter;
+import adapter.YahooAdapter;
 
 /**
  * Classe principal que mostra como obter a cotação de empresas da bolsa de valores
@@ -44,9 +29,9 @@ import java.time.format.DateTimeFormatter;
 public class Principal {
     public static void main(String[] args) {
         System.out.println();
-        CotacaoAdapter adapter = new CotacaoAdapter();
-        adapter.cotacaoYahoo("MGLU3");
-        adapter.cotacaoAlphaVantage("INTL");
-        adapter.cotacaoQuandl("AAPL");
+        new YahooAdapter().cotacao("MGLU3");
+        new AlphaVantageAdapter().cotacao("INTL");
+        new QuandlAdapter().cotacao("AAPL");
     }//main
+
 }//classe
